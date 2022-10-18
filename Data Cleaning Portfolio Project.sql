@@ -50,13 +50,13 @@ Select PropertyAddress
 From PortfolioProject.dbo.NashvilleHousing
 
 --Grabs the first position in property adress and goes until right before the comma to create Address
---Grabs right after the column in property adress and goes until end to create City 
+--Grabs right after the comma in property adress and goes until end to create City 
 SELECT 
 SUBSTRING(PropertyAddress, 1, CHARINDEX(',', PropertyAddress)-1) as Address
 , SUBSTRING(PropertyAddress, CHARINDEX(',', PropertyAddress) +1, LEN(PropertyAddress)) as City
 From PortfolioProject.dbo.NashvilleHousing
 
---Create two new columns and add the values in
+--Create two new columns and add the values created above in
 
 ALTER TABLE NashvilleHousing
 Add PropertySplitAddress Nvarchar(255);
